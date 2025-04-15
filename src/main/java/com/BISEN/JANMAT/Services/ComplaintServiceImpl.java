@@ -31,7 +31,7 @@ public class ComplaintServiceImpl implements ComplaintService {
     @Override
     public Complaint updateComplaint(Long id, Complaint updatedComplain) {
         Complaint existingComplain = complaintRepo.findById(id).orElse(null);
-        if(updatedComplain!= null){
+        if(existingComplain!= null){
             existingComplain.setSubject(updatedComplain.getSubject());
             existingComplain.setDescription(updatedComplain.getDescription());
             existingComplain.setStatus(updatedComplain.getStatus());

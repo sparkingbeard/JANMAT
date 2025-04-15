@@ -31,7 +31,7 @@ public class ComplaintResponseServiceImpl implements ComplaintResponseService{
     @Override
     public ComplaintResponse updateComplaintResponse(ComplaintResponse updatedResponse, Long id) {
         ComplaintResponse existingResponse = compresprepo.findById(id).orElse(null);
-        if(updatedResponse != null){
+        if(existingResponse != null){
         existingResponse.setResponseText(updatedResponse.getResponseText());
         existingResponse.setTimestamp(updatedResponse.getTimestamp());
         return compresprepo.save(existingResponse);
