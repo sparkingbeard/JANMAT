@@ -11,7 +11,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "complaintResponse")
-public class complaintResponse {
+public class ComplaintResponse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long responseId;

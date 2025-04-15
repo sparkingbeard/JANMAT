@@ -1,19 +1,14 @@
 package com.BISEN.JANMAT.Services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-import com.BISEN.JANMAT.modelsPackage.user;
-import com.BISEN.JANMAT.repositoryPackage.userRepository;
+import com.BISEN.JANMAT.modelsPackage.User;
 
-@Service
-public class userService{
-
-    @Autowired
-    private userRepository userRepo;
-
-    public user getuserByid(Long Id){
-        return userRepo.getReferenceById(Id);
-    }
+public interface userService {
+     User createUser (User user);
+     User getUserById(Long id);
+     List<User> getAllusers();
+     User updateUser (Long id, User user);
+     void deleteUser (Long id);
     
 }

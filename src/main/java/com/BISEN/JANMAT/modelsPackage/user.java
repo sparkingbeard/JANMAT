@@ -17,7 +17,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(name="users")
-public class user {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -33,23 +33,4 @@ public class user {
     private ENUMuserTypes role;
     @Column(nullable = false)
     private String createdAt;
-
-// public Long getUserID() {
-//      return user_id;
-// }
-// public void setUserId( Long user_id){
-//     this.user_id= user_id; 
-// }
-
-// public String getUserName() {
-//     return user_name;
-// }
-// public void setUserName( String user_name){
-//     this.user_name = user_name;
-// }
-
-
-
-
-
 }
