@@ -12,35 +12,43 @@ import com.BISEN.JANMAT.repositoryPackage.ProjectsNfundsRepository;
 public class ProjectNfundsServiceImpl implements ProjectNfundsService {
 
     @Autowired
-    ProjectsNfundsRepository projectsAndFunds;
+    ProjectsNfundsRepository projectsRepo;
 
     @Override
     public ProjectsNfunds createProjectsNfunds(ProjectsNfunds project) {
-          return projectsAndFunds.save(project);
+          return projectsRepo.save(project);
     }
 
     @Override
-    public ProjectsNfunds getProjectsNfunds(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getProjectsNfunds'");
+    public ProjectsNfunds getProjectsNfundsById(Long id) {
+        return projectsRepo.findById(id).orElse(null);
     }
 
     @Override
     public List<ProjectsNfunds> getAllProjectsNfunds() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllProjectsNfunds'");
+       return projectsRepo.findAll();
+    }
+
+    
+    @Override
+    public void deleteProjectsNfunds(Long id) {
+       projectsRepo.deleteById(id);
     }
 
     @Override
     public ProjectsNfunds updateProjectsNfunds(ProjectsNfunds updatedProject, Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateProjectsNfunds'");
-    }
-
-    @Override
-    public ProjectsNfunds deleteProjectsNfunds(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteProjectsNfunds'");
+        ProjectsNfunds existing = (projectsRepo.findById(id).orElse(null));
+        if(existing != null){
+            existing.setDescription(updatedProject.getDescription());
+            existing.setStartDate(updatedProject.getStartDate());
+            existing.setEndDate(updatedProject.getEndDate());
+            existing.setAllocateAmount(updatedProject.getAllocateAmount());
+            existing.setSpentAmount(updatedProject.getSpentAmount());
+            existing.setProjectStatus(updatedProject.getProjectStatus());
+            return projectsRepo.save(existing);
+        }
+        return null;
     }
 
 }
+

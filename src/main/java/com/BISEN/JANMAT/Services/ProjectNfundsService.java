@@ -7,8 +7,8 @@ import com.BISEN.JANMAT.modelsPackage.ProjectsNfunds;
 public interface ProjectNfundsService {
 
     ProjectsNfunds createProjectsNfunds(ProjectsNfunds project);
-    ProjectsNfunds getProjectsNfunds(Long id);
+    ProjectsNfunds getProjectsNfundsById(Long id);
     List<ProjectsNfunds> getAllProjectsNfunds();
     ProjectsNfunds updateProjectsNfunds(ProjectsNfunds updatedProject, Long id);
-    ProjectsNfunds deleteProjectsNfunds(Long id);
+    void deleteProjectsNfunds(Long id);
 }

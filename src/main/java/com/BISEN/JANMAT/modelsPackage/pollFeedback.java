@@ -2,6 +2,7 @@ package com.BISEN.JANMAT.modelsPackage;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -11,7 +12,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "pollFeedback")
-public class pollFeedback {
+public class PollFeedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long complainPollId;
@@ -20,5 +21,6 @@ public class pollFeedback {
     @OneToOne
     private Long compliantId;
     @Column(nullable = false)
+    @Enumerated
     private ENUMfeedback feedback;
 }
