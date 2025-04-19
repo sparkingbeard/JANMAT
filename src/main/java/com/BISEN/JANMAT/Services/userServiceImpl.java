@@ -27,7 +27,7 @@ public class userServiceImpl implements userService{
         return userRepo.findAll();
     }
     @Override
-    public User updateUser(Long id, User updatedUser) {
+    public User updateUserById(Long id, User updatedUser) {
         User existing = userRepo.findById(id).orElse(null);
         if(existing!= null){
              existing.setUserName( updatedUser.getUserName());
@@ -35,6 +35,7 @@ public class userServiceImpl implements userService{
              existing.setPassword(updatedUser.getPassword());
              existing.setRole( updatedUser.getRole());
              existing.setCreatedAt(updatedUser.getCreatedAt());
+             return userRepo.save(existing);
         }
         return null;
     }
