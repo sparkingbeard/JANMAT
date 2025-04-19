@@ -28,27 +28,27 @@ public class ComplaintController {
     @Autowired
     ComplaintService compserv;
 
-    @PostMapping("/complaint")
+    @PostMapping
     public ResponseEntity<Complaint> createComplaint(@RequestBody Complaint complain) {
         return ResponseEntity.ok(compserv.saveComplaint(complain));
     }
     
-    @GetMapping("/complaint/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Complaint> getComplaint(@PathVariable Long id) {
         return  ResponseEntity.ok(compserv.getComplaint(id));
     }
-    @GetMapping("/complaint")
-    public ResponseEntity<List<Complaint>> getMethodName() {
+    @GetMapping
+    public ResponseEntity<List<Complaint>> getAllComplaints() {
         return ResponseEntity.ok(compserv.getAllComplaints());
     }
 
-    @PutMapping("complaint/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Complaint> updateComplaint(@PathVariable Long id, @RequestBody Complaint complain) {
        return ResponseEntity.ok(compserv.updateComplaint(id, complain));
     }
     
-    @DeleteMapping("/complaint/{id}")
-    public ResponseEntity<String> deleteByID(@PathVariable Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteComplaint(@PathVariable Long id){
         compserv.deleteComplaint(id);
         return ResponseEntity.ok("Complaint Deleted Successfully");
     }

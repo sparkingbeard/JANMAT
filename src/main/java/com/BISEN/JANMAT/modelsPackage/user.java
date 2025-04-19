@@ -20,13 +20,12 @@ import lombok.Setter;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private Long userId;
     @Column(nullable=false)
     private String userName;
     @Column(nullable = false)
     private String email;
-    @Column(nullable=false, unique=true)
+    @Column(nullable=false)
     private String password;
     @Column(name="role",nullable = false)
     @Enumerated

@@ -20,36 +20,36 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @CrossOrigin("http://localhost:4200")
-@RequestMapping("/complaintresponse")
+@RequestMapping("/complaintresponses")
 @RestController
 public class ComplaintResponseController {
 
     @Autowired
     ComplaintResponseService comprespserv;
 
-    @PostMapping("/complaintresponse")
+    @PostMapping
     public ResponseEntity<ComplaintResponse> createComplaintResponse(@RequestBody ComplaintResponse response) {
         return ResponseEntity.ok(comprespserv.saveComplaintResponse(response));
     }
 
-    @GetMapping("/complaintresponse/{id}")
-    public ResponseEntity<ComplaintResponse> getComplaintResponseById(@PathVariable Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<ComplaintResponse> getComplaintResponse(@PathVariable Long id) {
         return ResponseEntity.ok(comprespserv.getComplaintResponseById(id));
     }
 
-    @GetMapping("/complaintresponse/{id}")
+    @GetMapping
     public ResponseEntity<List<ComplaintResponse>> getAllComplaintResponse() {
         return ResponseEntity.ok(comprespserv.getAllComplaintResponse());
     }
 
-    @PutMapping("complaintresponse/{id}")
-    public ResponseEntity<ComplaintResponse> putMethodName(@PathVariable Long id,
+    @PutMapping("/{id}")
+    public ResponseEntity<ComplaintResponse> upsateComplaintResponse(@PathVariable Long id,
             @RequestBody ComplaintResponse response) {
         return ResponseEntity.ok(comprespserv.updateComplaintResponse(response, id));
     }
 
-    @DeleteMapping("/complaintresponse")
-    public ResponseEntity<String> deleteComResponseByID(Long id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteComResponseByID(@PathVariable Long id) {
         comprespserv.deleteComplaintResponse(id);
         return ResponseEntity.ok("Complaint Response Deleted Successfully");
     }

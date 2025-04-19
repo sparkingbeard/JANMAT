@@ -27,27 +27,27 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class ProjectsNfundsController {
     @Autowired ProjectNfundsService project;
 
-    @PostMapping("/projectsnfunds")
-    public ResponseEntity<ProjectsNfunds> postMethodName(@RequestBody ProjectsNfunds pro) {
+    @PostMapping
+    public ResponseEntity<ProjectsNfunds> createProject(@RequestBody ProjectsNfunds pro) {
        return ResponseEntity.ok( project.createProjectsNfunds(pro));
     }
 
-    @GetMapping("/projectsnfunds/{id}")
-    public ResponseEntity<ProjectsNfunds> getProjectById(@PathVariable Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<ProjectsNfunds> getProject(@PathVariable Long id) {
        return ResponseEntity.ok(project.getProjectsNfundsById(id));
     }
-    @GetMapping("/projectsnfunds")
+    @GetMapping
     public ResponseEntity<List<ProjectsNfunds>> getAllProjects() {
         return ResponseEntity.ok(project.getAllProjectsNfunds());
     }
 
-    @PutMapping("/projectsnfunds/{id}")
-    public ResponseEntity<ProjectsNfunds> updateProjectById(@RequestBody ProjectsNfunds pro, @PathVariable Long id) {
+    @PutMapping("/{id}")
+    public ResponseEntity<ProjectsNfunds> updateProject(@RequestBody ProjectsNfunds pro, @PathVariable Long id) {
           return ResponseEntity.ok(project.updateProjectsNfunds(pro, id));
     }
 
-    @DeleteMapping("/projectsnfunds/{id}")
-    public ResponseEntity<String> deleteById(@PathVariable Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteProject(@PathVariable Long id){
         project.deleteProjectsNfunds(id);
         return ResponseEntity.ok("Project Deleted Successfully");
     }

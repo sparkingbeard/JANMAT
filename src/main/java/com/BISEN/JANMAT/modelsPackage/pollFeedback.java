@@ -11,15 +11,15 @@ import jakarta.persistence.Table;
 import lombok.Data;
 @Entity
 @Data
-@Table(name = "pollFeedback")
+@Table(name = "Poll_Feedback")
 public class PollFeedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long complainPollId;
     @OneToOne
-    private Long userId;
+    private User userId;
     @OneToOne
-    private Long compliantId;
+    private Complaint compliantId;
     @Column(nullable = false)
     @Enumerated
     private ENUMfeedback feedback;

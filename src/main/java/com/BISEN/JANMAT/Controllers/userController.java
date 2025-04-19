@@ -27,26 +27,26 @@ public class userController {
     @Autowired
     private userService userServ;
 
-    @GetMapping("/{identity}")
-    public ResponseEntity<User> getUserbyId(@PathVariable Long identity) {
-        return ResponseEntity.ok(userServ.getUserById(identity));
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUser(@PathVariable Long id) {
+        return ResponseEntity.ok(userServ.getUserById(id));
     }
-    @GetMapping("/user")
+    @GetMapping
     public ResponseEntity<List<User>> getAllUsers(){
         return ResponseEntity.ok(userServ.getAllusers());
     }
     
-    @PostMapping("/user")
+    @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user){
         return ResponseEntity.ok(userServ.createUser(user));
     }
 
-    @PutMapping("/{identity}")
+    @PutMapping("/{id}")
     public ResponseEntity<User> updateUserById(@PathVariable Long id, User user){
         return ResponseEntity.ok(userServ.updateUser(id, user));
     }
 
-    @DeleteMapping("/{identity}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteById(@PathVariable Long id){
         userServ.deleteUser(id);
         return ResponseEntity.ok("User Deleted Successfully");

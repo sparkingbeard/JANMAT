@@ -35,7 +35,7 @@ public class PollFeedbackServiceImpl implements PollFeedbackService{
     }
 
     @Override
-    public PollFeedback updatPollFeedback(Long id, PollFeedback updatedFeedback) {
+    public PollFeedback updatePollFeedback(Long id, PollFeedback updatedFeedback) {
         PollFeedback existing = poferepo.findById(id).orElse(null);
         if(existing != null){
             existing.setFeedback(updatedFeedback.getFeedback());

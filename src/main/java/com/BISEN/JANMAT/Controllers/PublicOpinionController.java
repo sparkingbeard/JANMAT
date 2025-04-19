@@ -29,27 +29,27 @@ public class PublicOpinionController {
     @Autowired
     PublicOpinionService poserv;
 
-    @PostMapping("/public-opinion")
+    @PostMapping
     public ResponseEntity<PublicOpinion> createPublicOpinion(@RequestBody PublicOpinion opinion) {
         return ResponseEntity.ok(poserv.createPublicOpinion(opinion));
     }
 
-    @GetMapping("/public-opinion/{id}")
-    public ResponseEntity<PublicOpinion> getPublicOpinionById(@PathVariable Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<PublicOpinion> getPublicOpinion(@PathVariable Long id) {
         return ResponseEntity.ok(poserv.getOpinionById(id));
     }
-    @GetMapping("/public-opinion")
-    public ResponseEntity<List<PublicOpinion>> getPublicOpinion() {
+    @GetMapping
+    public ResponseEntity<List<PublicOpinion>> getAllPublicOpinions() {
         return ResponseEntity.ok(poserv.getAllOpinion());
     }
     
-    @PutMapping("/public-opinion/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<PublicOpinion> updatePublicOpinion(@PathVariable Long id, @RequestBody PublicOpinion Opinion) {
        return ResponseEntity.ok(poserv.updateOpinion(id, Opinion));
     }
 
-    @DeleteMapping("/public-opinion/ {id}")
-    public ResponseEntity<String> deletePublicOpinionById(@PathVariable Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deletePublicOpinion(@PathVariable Long id){
         poserv.deleteById(id);
         return ResponseEntity.ok("Opinion Deleted Successfully");
 

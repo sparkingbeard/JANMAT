@@ -6,23 +6,24 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "publicOpinion")
+@Table(name = "Public_Opinion")
 public class PublicOpinion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long opinionId;
-    @Column
+    @JoinColumn(nullable = false)
     @OneToOne
-    private Long ministerId;
-    @Column
+    private Minister ministerId;
     @OneToOne
-    private Long userId;
+    private User userId;
     @Enumerated
+    @Column(nullable = false)
     private ENUMpublicOpinionVotes votes;
 }

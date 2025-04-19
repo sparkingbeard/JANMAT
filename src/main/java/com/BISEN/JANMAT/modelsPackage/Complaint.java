@@ -7,6 +7,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -18,12 +19,12 @@ public class Complaint {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long complaintId;
-   @Column(nullable = false)
+   @JoinColumn(nullable = false)
    @ManyToOne
-   private Long userId;
-   @Column(nullable = false)
+   private User userId;
+   @JoinColumn
    @OneToOne
-   private Long ministerId;
+   private Minister ministerId;
    @Column(nullable = false)
    private String subject;
    @Column(nullable = false)

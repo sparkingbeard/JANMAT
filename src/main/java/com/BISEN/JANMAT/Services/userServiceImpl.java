@@ -13,17 +13,7 @@ public class userServiceImpl implements userService{
 
     @Autowired
     private userRepository userRepo;
-
-    // public user getuserByid(Long Id){
-    //     return userRepo.getReferenceById(Id);
-    // }
-    // public String createUser(user u){
-    //     userRepo.save(u);
-    //     return "User created successfully";
-    // }
-    // public String updateUser(Long Id, user u){
-    //     UserRepo.add(Id, u);
-    // }
+    
     @Override
     public User createUser(User user) {
        return userRepo.save(user);

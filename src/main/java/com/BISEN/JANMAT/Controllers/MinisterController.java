@@ -21,36 +21,33 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @CrossOrigin("http://localhost:4200")
-@RequestMapping("/minister")
+@RequestMapping("/ministers")
 @RestController
 public class MinisterController {
 
     @Autowired
     MinisterService ministerserv;
 
-    @PostMapping("/minister")
-    public ResponseEntity<Minister> postMethodName(@RequestBody Minister minister) {
+    @PostMapping
+    public ResponseEntity<Minister> createMinister(@RequestBody Minister minister) {
         return ResponseEntity.ok(ministerserv.createMinister(minister));
     }
-    @GetMapping("Minister/{id}")
-    public ResponseEntity<Minister> getMinisterByIdString(@PathVariable Long id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Minister> getMinister(@PathVariable Long id) {
         return ResponseEntity.ok(ministerserv.getMinisterById(id));
     }
-    @GetMapping("Minister")
+    @GetMapping
     public ResponseEntity<List<Minister>> getAllMinisters() {
         return ResponseEntity.ok(ministerserv.getAllMinister());
     }
     
-    @PutMapping("path/{id}")
-    public ResponseEntity<Minister> putMethodName(@PathVariable Long id, @RequestBody Minister minster) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Minister> updateMinister(@PathVariable Long id, @RequestBody Minister minster) {
         return ResponseEntity.ok(ministerserv.updateMinisterById(id, minster));
     }
-    @DeleteMapping("/minister/{id}")
-    public ResponseEntity<String> deleteById(@PathVariable Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteMinister(@PathVariable Long id){
         ministerserv.deleterMinisterById(id);
         return ResponseEntity.ok("Minister Deleted Successfully");
-    };
-    
-    
-
+    }
 }

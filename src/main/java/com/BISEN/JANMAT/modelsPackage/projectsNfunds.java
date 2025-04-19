@@ -6,6 +6,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -15,11 +16,10 @@ import lombok.Data;
 public class ProjectsNfunds {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private Long projectId; 
     @OneToOne
-    @Column(nullable = false, unique = true)
-    private Long ministerId; 
+    @JoinColumn(nullable = false)
+    private Minister ministerId; 
     @Column(nullable = false)
     private String description; 
     @Column(nullable = false)
