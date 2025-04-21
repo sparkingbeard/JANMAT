@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.BISEN.JANMAT.modelsPackage.User;
-import com.BISEN.JANMAT.repositoryPackage.userRepository;
+import com.BISEN.JANMAT.repositoryPackage.UserRepository;
 
 @Service
 public class userServiceImpl implements userService{
 
     @Autowired
-    private userRepository userRepo;
+    private UserRepository userRepo;
     
     @Override
     public User createUser(User user) {

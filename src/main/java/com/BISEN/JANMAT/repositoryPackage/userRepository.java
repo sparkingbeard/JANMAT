@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.BISEN.JANMAT.modelsPackage.User;
 
 @Repository
-public interface userRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
     // custom query example
     // @Query("select u from user u where email="abc@gmail.com")

@@ -33,6 +33,7 @@ public class MinisterServiceImpl implements MinisterService {
     public Minister updateMinisterById(Long id, Minister updatedminister) {
         Minister existingMinister = ministerRepo.findById(id).orElse(null);
         if(existingMinister != null){
+            existingMinister.setName(updatedminister.getName());
             existingMinister.setPosition(updatedminister.getPosition());
             existingMinister.setStartDate(updatedminister.getStartDate());
             existingMinister.setEndDate(updatedminister.getEndDate());
